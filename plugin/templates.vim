@@ -48,7 +48,7 @@ function! LoadTemp(name) abort
     endif
 
     "insert template to current cursor position
-    call append(line(.), readfile(l:source))
+    call append(line('.'), readfile(l:source))
     echom "Loaded template: " . l:filename
 endfunction
 
