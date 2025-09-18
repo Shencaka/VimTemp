@@ -24,7 +24,7 @@ function! SaveTemp(name) abort
     "write to templates
     call writefile(l:contents, l:destination)
     echom "Saved templat: " . l:name
-end function
+endfunction
 
 function! LoadTemp(name) abort
     "plugin and root directories
