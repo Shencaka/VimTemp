@@ -40,7 +40,7 @@ function! SaveTemp(name) abort
     if l:do_overwrite
         "write to template
         call writefile(l:contents, l:destination)
-        echom "Saved template: " . a:name
+        echom "\nSaved template: " . a:name
     else
         echom "\nCanceled"
     endif
@@ -89,7 +89,7 @@ function! DeleteTemp(name) abort
     let l:source = l:templates_dir . '/' . l:filename
 
     if !filereadable(l:source)
-        echom "Template not found: " . l:source
+        echom "\nTemplate not found: " . l:source
         return
     endif
     
