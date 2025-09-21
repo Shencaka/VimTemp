@@ -24,3 +24,19 @@ To load an existing template run:
 ```vim
 :VimTemp <template name>
 ```
+
+To delete an existing template run:
+
+```vim
+:RmTemp <template name>
+```
+
+## Defaults
+
+By default overwriting and deletion default answer (pressing enter) will result in NO, to change this add the following to your vimrc/init.vim:
+```vim
+"for overwriting:
+let g:replacetemp_default = 'yes' "no by deault
+"for deletion:
+let g:rmtemp_default = 'yes' "no by default
+```
