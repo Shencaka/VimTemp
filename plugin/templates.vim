@@ -40,9 +40,9 @@ function! SaveTemp(name) abort
     if l:do_overwrite
         "write to template
         call writefile(l:contents, l:destination)
-        echom "\nSaved template: " . a:name
+        echom "\n" . "Saved template: " . a:name
     else
-        echom "\nCanceled"
+        echom "\n" . "Canceled"
     endif
 
 endfunction
@@ -112,12 +112,12 @@ function! DeleteTemp(name) abort
     "result message
     if l:do_delete
         if delete(l:source) == 0
-            echom "\nDeleted: " . a:name
+            echom "\n" . "Deleted: " . a:name
         else
             echohl ErrorMsg | echom "\nFailed to delete: " . a:name | echohl None
         endif
     else
-        echom "\nCanceled"
+        echom "\n" . "Canceled"
     endif
 endfunction
 
