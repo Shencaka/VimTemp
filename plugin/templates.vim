@@ -82,7 +82,7 @@ function! DeleteTemp(name) abort
     let l:delete = l:default
     if l:ans =~? '^y$'
         l:delete = 1
-    elseif l:ans =~? '^n$' 
+    elseif l:ans =~? '^n$'
         l:delete = 0
     endif
 
