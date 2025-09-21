@@ -100,5 +100,5 @@ endfunction
 
 command! -nargs=1 SaveTemp call SaveTemp(<f-args>)
 command! -nargs=1 VimTemp call LoadTemp(<f-args>)
-command! -nargs=1 rmTemp call DeleteTemp(<f-args>)
+command! -nargs=1 RmTemp call DeleteTemp(<f-args>)
 
