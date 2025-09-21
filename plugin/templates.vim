@@ -19,10 +19,32 @@ function! SaveTemp(name) abort
 
     "reads current file and get its contents
     let l:contents = getline(1, '$')
+    
+    "reading default (enter) settings from init file
+    let l:default = get(g:, 'replacetemp_default', 'no') ==? 'yes'
 
-    "write to templates
-    call writefile(l:contents, l:destination)
-    echom "Saved template: " . a:name
+    "take input from user 
+    let l:prompt = a:name . " alrea exists, overwrite? [" . (l:default ? "Y/n" : "y/N") . "]: "
+    let l:ans = input(l:prompt)
+
+    "deletion logic
+    if l:ans ==# ''
+        let l:do_overwrite = l:default
+    elseif l:ans =~? '^y$'
+        let l:do_overwrite = 1
+    else
+        let l:do_overwrite = 0
+    endif
+
+    "result message
+    if l:do_overwrite
+        "write to template
+        call writefile(l:contents, l:destination)
+        echom "Saved template: " . a:name
+    else
+        echom "\nCanceled"
+    endif
+
 endfunction
 
 function! LoadTemp(name) abort
