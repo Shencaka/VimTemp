@@ -79,11 +79,12 @@ function! DeleteTemp(name) abort
     let l:ans = input(l:prompt)
     
     "deletion logic
-    let l:do_delete = l:default
-    if l:ans =~? '^y$'
-        l:do_delete = 1
-    elseif l:ans =~? '^n$'
-        l:do_delete = 0
+    if l:ans ==# ''
+        let l:do_delete = l:default
+    elseif l:ans =~? '^y$'
+        let l:do_delete = 1
+    else
+        let l:do_delete = 0
     endif
 
     "result message
