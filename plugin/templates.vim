@@ -90,16 +90,15 @@ function! DeleteTemp(name) abort
     "result message
     if l:do_delete
         if delete(l:source) == 0
-            echom "Deleted: " . a:name
+            echom "\nDeleted: " . a:name
         else
-            echohl ErrorMsg | echom "Failed to delete: " . a:name | echohl None
+            echohl ErrorMsg | echom "\nFailed to delete: " . a:name | echohl None
         endif
     else
-        echom "Canceled"
+        echom "\nCanceled"
     endif
 endfunction
 
 command! -nargs=1 SaveTemp call SaveTemp(<f-args>)
 command! -nargs=1 VimTemp call LoadTemp(<f-args>)
 command! -nargs=1 RmTemp call DeleteTemp(<f-args>)
-
