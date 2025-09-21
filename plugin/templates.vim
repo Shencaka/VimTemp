@@ -24,7 +24,7 @@ function! SaveTemp(name) abort
     let l:default = get(g:, 'replacetemp_default', 'no') ==? 'yes'
 
     "take input from user 
-    let l:prompt = a:name . " alrea exists, overwrite? [" . (l:default ? "Y/n" : "y/N") . "]: "
+    let l:prompt = a:name . " already exists, overwrite? [" . (l:default ? "Y/n" : "y/N") . "]: "
     let l:ans = input(l:prompt)
 
     "deletion logic
